@@ -1,0 +1,25 @@
+name: Mirror JY remake Repos
+on:
+  schedule:
+    # nightly (0th hour 0th minute of every day)
+    - cron:  '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Mirroring JY2 repo'
+      uses: wearerequired/git-mirror-action@master
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.JY2_REPO_KEY }}
+      with:
+        source-repo: 'http://gogs-hd.dianhun.cn/MD/jy2.git'
+        destination-repo: 'git@github.com:ssz66666/jy2-mirror.git'
+    - name: 'Mirroring JY3 repo'
+      uses: wearerequired/git-mirror-action@master
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.JY3_REPO_KEY }}
+      with:
+        source-repo: 'http://gogs-hd.dianhun.cn/hzw0827/jy3'
+        destination-repo: 'git@github.com:ssz66666/jy3-mirror.git'
+ 
