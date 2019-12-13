@@ -20,6 +20,6 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.JY3_REPO_KEY }}
       with:
-        source-repo: 'http://gogs-hd.dianhun.cn/hzw0827/jy3'
+        source-repo: 'http://gogs-hd.dianhun.cn/hzw0827/jy3.git'
         destination-repo: 'git@github.com:ssz66666/jy3-mirror.git'
  
